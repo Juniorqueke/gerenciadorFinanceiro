@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BoletoController {
 
-    @RequestMapping ("localhost:8081/boletos/novo")
+    @RequestMapping ("/boletos/novo")
     public String novo() {
         return "CadastrodeBoleto";
     }
