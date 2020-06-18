@@ -1,0 +1,10 @@
+                    formcadastro {
+                        /* Centraliza o forms na pagina */
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        margin-top: 10px;
+                        /* Para ver as bordas do formulário */
+                        padding: 2em;
+                        border: 1px solid #28a745;
+                        border-radius: 1em;
+                    }
