@@ -40,4 +40,8 @@ public class BoletoController {
         public List<StatusBoleto> todosStatusBoleto() {
             return Arrays.asList(StatusBoleto.values());
         }
+        @RequestMapping
+        public String pesquisar() {
+            return "PesquisaBoleto";
+        }
 }

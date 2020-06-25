@@ -9,7 +9,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
-
 import ch.qos.logback.core.status.Status;
 
 @Entity // Cria uma entidade JPA para controlar o DB
@@ -27,9 +26,9 @@ public class Boleto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataVencimento;
 
-    @NumberFormat(pattern = "#,##0.00") //formatação do numero dois números apos a virgula 
+    @NumberFormat(pattern = "#,##0.00") // formatação do numero dois números apos a virgula
     private double valor;
-     
+
     private Status status;
 
     public Long getId() {
@@ -70,6 +69,35 @@ public class Boleto {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    // hashcode e equals
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    // generate hash code and equals serve para comparar o código digitado
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+
+        Boleto other = (Boleto) obj;
+        if (id == null) {  
+            if (other.id != null)
+                return false;
+            else if (!id.equals(other.id))
+                return false;
+        }
+        return false;
     }
 
 }

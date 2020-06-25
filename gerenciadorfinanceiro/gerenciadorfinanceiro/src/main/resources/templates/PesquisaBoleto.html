@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http:/www.w3.org/1999/xhtml">
+xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PesquisaBoleto</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/stys.css.min.css" />
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Logo da empresa no topo -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/images/SENAI_WEB.png" alt="" loading="lazy">
+        </a>
+    </nav>
+    <div id="main" class="container-fluid">
+        <div id="top" class="row">
+            <div class="col-md-3">
+                <h3>Pesquisa de Boletos</h3>
+            </div>
+            <!--Campo pesquisar -->
+            <div class="col-md-6">
+                <div class="imput-group">
+                    <input type="text" class="form-control" id="search" placeholder="Pesquisar Boletos">
+                    <div class="input-group-btn">
+                        <button class="btn btn-sucess" type="submit">Pesquisar</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <a href="CadastrodeBoleto.html" class="btn btn-primary pull-right h2">Novo Boleto</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Fim da linha do topo -->
+    <div id="id" class="row">
+        <div class="table-responsive col-md-12">
+            <table class="table tabela-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Descrição</th>
+                        <th>Data de Vencimento</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th class="actions">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="boleto:${Boletos}">
+                        <td th:text="${boleto.id}"></td>
+                        <td th:text="${boleto.descrição}"></td>
+                        <td th:text="${boleto.dataVencimento}"></td>
+                        <td th:text="${boleto.valor}"></td>
+                        <td th:text="${boleto.stattus}"></td>
+                        <td class="actions">
+                            <a href="view.html" class="btn btn-sucess btn-xs">Visualizar</a>
+                            <a href="edit.html" class="btn btn-warning btn-xs">Editar</a>
+                            <a href="delete.html" class="btn btn-danger btn-xs">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#list.isEmpty(boletos)}">Nenhum Boleto foi encontrado!</tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <script src="/js/bootstrap.min.js ">
+        </script>
+        <script src="/js/jquery-3.5.1.min.js "></script>
+</body>
+
+</html>
